@@ -14,13 +14,13 @@
 # #### Deck class
 # * drawCard: return a card, and add it to the dead list
 
-# In[4]:
+# In[1]:
 
 
 import random
 
 
-# In[5]:
+# In[2]:
 
 
 class Card: 
@@ -30,7 +30,7 @@ class Card:
         self.name = str(self.value) + self.suit
 
 
-# In[6]:
+# In[3]:
 
 
 class Deck:
@@ -62,7 +62,6 @@ class Deck:
             active_card = self.live.pop()
             drawn.append(active_card)
             self.dead.append(active_card)
-            #fake dealt (for odds)
         return drawn    
 
 
