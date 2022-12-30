@@ -39,19 +39,20 @@ class Deck:
     # getDealt
     # updateDealt
     # burntCards
-    def __init__(self):
-        self.value_list = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    def __init__(self, shuffle=True):
+        self.value_list = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
         self.suit_list = ['s', 'h', 'd', 'c']        
-        self.live = self.makeDeck(self.value_list, self.suit_list)
+        self.live = self.makeDeck(self.value_list, self.suit_list, shuffle)
         self.dead = []
         
-    def makeDeck(self, value, suit):
+    def makeDeck(self, value, suit, shuffle):
         deck = []
-        random.shuffle(value)
-        random.shuffle(suit)
+        if shuffle:         
+            random.shuffle(value)
+            random.shuffle(suit)
         for v in value:
             for s in suit:
-                random.shuffle(deck)
+                if shuffle: random.shuffle(deck)
                 deck.append(Card(v, s))
         return deck
     
